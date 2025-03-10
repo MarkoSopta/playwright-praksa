@@ -1,0 +1,22 @@
+[project]
+name = "praksa"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Marko Sopta",email = "77636140+MarkoSopta@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pytest (>=8.3.5,<9.0.0)",
+    "pytest-playwright (>=0.7.0,<0.8.0)",
+    "faker (>=37.0.0,<38.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "praksa", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
