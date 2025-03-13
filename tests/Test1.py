@@ -92,10 +92,8 @@ def test_example(page: Page, url: str) -> None:
     page1.wait_for_timeout(1000)
     page1.wait_for_load_state('networkidle')
     page1.get_by_text("Save and next").click(force=True)
-    
     page1.wait_for_load_state('networkidle')
     page1.get_by_role("checkbox", name="Should the prospective tenant").check(force=True)
-    page1.screenshot(path="page_after_click.png")
     page1.get_by_role("checkbox", name="I confirm that I have").check(force=True)
     page1.get_by_role("checkbox", name="I have read the privacy").check(force=True)
     page1.get_by_text("Save").click()
