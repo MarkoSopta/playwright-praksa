@@ -12,44 +12,106 @@ fake = Faker()
 
 @pytest.mark.parametrize("url", [API_URL])
 def test_example(page: Page, url: str) -> None:
-    #page 1 
+    #pg1
     page.goto(url)
     page.click(".vuetable-body > tr:nth-child(1) > td:nth-child(6) > span:nth-child(1)")
     with page.expect_popup() as page1_info:
         page.click(".button")
     page1 = page1_info.value
-    #page 2 
-    page1.click(".btn")
-    page1.locator(".radio-list-item").first.click()
-    page1.locator("div:nth-child(12) > .radio-field > .mdt-radio-list > .radio-list > li").first.click()
-    page1.locator("div:nth-child(13) > .radio-field > .mdt-radio-list > .radio-list > li").first.click()
-    page1.locator("div:nth-child(15) > .radio-field > .mdt-radio-list > .radio-list > li").first.click()
-    page1.locator("div:nth-child(18) > .radio-field > .mdt-radio-list > .radio-list > li").first.click()
-    page1.locator("div:nth-child(21) > .radio-field > .mdt-radio-list > .radio-list > li").first.click()
-    page1.locator("div:nth-child(24) > .radio-field > .mdt-radio-list > .radio-list > li").first.click()
-    page1.locator("div:nth-child(26) > .radio-field > .mdt-radio-list > .radio-list > li").first.click()
-    page1.locator("div:nth-child(27) > .radio-field > .mdt-radio-list > .radio-list > li").first.click()
-    page1.locator("div:nth-child(29) > .radio-field > .mdt-radio-list > .radio-list > li").first.click()
-    page1.click(".btn")
-    
-    
-    page1.wait_for_load_state('networkidle')
-    #page 3 
-    page1.click("div.section:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > input:nth-child(1)")
-    page1.click("li.dropdown-item:nth-child(1) > div:nth-child(1)")
-    page1.click("div.section:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(1)")
-    page1.click("div.section:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(1)")
-    page1.click("div.section:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(8) > div:nth-child(1) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(1)")
-    page1.click("div.section:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > input:nth-child(1)")
-    page1.click("li.dropdown-item:nth-child(1) > div:nth-child(1)")
-    page1.click("div.section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(1)")
-    page1.click(".selected")
-    page1.click("div.section:nth-child(5) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > input:nth-child(1)")
-    page1.click("li.dropdown-item:nth-child(1) > div:nth-child(1)")
-    page1.click("div.btn:nth-child(2)")
-        # ^^so far so good ^^
-#page 4
 
+   # pg2
+    page1.get_by_text("Start").click()
+    page1.locator("li:nth-child(2)").first.click()
+    page1.locator("#increment > .fas").first.click()
+    page1.locator("div:nth-child(4) > .mt-16 > div > div > .mdt-number-incrementer > .wrapper > #increment > .fas").click()
+    page1.locator("div:nth-child(5) > .mt-16 > div > div > .mdt-number-incrementer > .wrapper > #increment > .fas").click()
+    page1.locator("div:nth-child(6) > .mt-16 > div > div > .mdt-number-incrementer > .wrapper > #increment").click()
+    page1.locator("div:nth-child(7) > .mt-16 > div > div > .mdt-number-incrementer > .wrapper > #increment > .fas").click()
+    page1.locator("div:nth-child(8) > .mt-16 > div > div > .mdt-number-incrementer > .wrapper > #increment > .fas").click()
+    page1.locator("div:nth-child(9) > .mt-16 > div > div > .mdt-number-incrementer > .wrapper > #increment > .fas").click()
+    page1.fill("input.text-cut",fake.text())
+    
+    page1.locator("div:nth-child(12) > .radio-field > .mdt-radio-list > .radio-list > li:nth-child(2)").click()
+    page1.locator("div:nth-child(13) > .radio-field > .mdt-radio-list > .radio-list > li:nth-child(2)").click()
+    page1.locator("div:nth-child(14) > .mt-16 > div > div > .mdt-number-incrementer > .wrapper > #increment").click()
+    page1.locator("div:nth-child(15) > .radio-field > .mdt-radio-list > .radio-list > li:nth-child(2)").click()
+    page1.locator("div:nth-child(16) > .mt-16 > div > div > .mdt-number-incrementer > .wrapper > #increment > .fas").click()
+    page1.locator("div:nth-child(17) > .mt-16 > div > div > .mdt-number-incrementer > .wrapper > #increment > .fas").click()
+    page1.locator("div:nth-child(18) > .radio-field > .mdt-radio-list > .radio-list > li:nth-child(2)").click()    
+    page1.fill("div.section:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(19) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > textarea:nth-child(1)",fake.text())
+   
+    page1.fill("div.section:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(20) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)",fake.text())
+    page1.locator("div:nth-child(21) > .radio-field > .mdt-radio-list > .radio-list > li:nth-child(2)").click()
+  
+    page1.fill("div.section:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(22) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > textarea:nth-child(1)",fake.text())
+    
+    page1.fill("div.section:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(23) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)",fake.text())
+
+    page1.locator("div:nth-child(24) > .radio-field > .mdt-radio-list > .radio-list > li:nth-child(2)").click()
+    
+    page1.fill("div.section:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(23) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)",fake.text())
+
+    page1.locator("div:nth-child(26) > .radio-field > .mdt-radio-list > .radio-list > li:nth-child(2)").click()
+    page1.locator("div:nth-child(27) > .radio-field > .mdt-radio-list > .radio-list > li:nth-child(2)").click()
+    
+    page1.fill("div.section:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(28) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)",fake.text())
+    page1.locator("div:nth-child(29) > .radio-field > .mdt-radio-list > .radio-list > li:nth-child(2)").click()
+    page1.click(".btn")
+
+#pg3
+    page1.click("div.section:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > i:nth-child(2)")
+    page1.click("li.dropdown-item:nth-child(3) > div:nth-child(1)")
+    
+    page1.click("div.section:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(2)")
+    page1.fill("div.section:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)",fake.text())
+    
+    page1.click("div.section:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(2)")
+    page1.fill("div.section:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(7) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)",fake.text())
+    
+    page1.click("div.section:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(8) > div:nth-child(1) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(2)")
+   
+   
+    page1.click("div.section:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > i:nth-child(2)")
+    page1.click("li.dropdown-item:nth-child(1) > div:nth-child(1)")
+
+    page1.locator("div:nth-child(2) > .input-wrapper > .text-cut").click()
+    page1.locator("div:nth-child(2) > .input-wrapper > .text-cut").fill(fake.text())
+
+    page1.fill("div.mdt-input:nth-child(2) > div:nth-child(2) > input:nth-child(1)",fake.text())
+    page1.fill("div.section:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)",fake.text())
+    page1.click("div.section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(2)")
+
+    page1.click("div.section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > i:nth-child(2)")
+    page1.click("li.dropdown-item:nth-child(2) > div:nth-child(1)")
+
+    page1.click("div.section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5) > div:nth-child(1) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(2)")
+  
+    page1.locator("div:nth-child(6) > .mt-16 > .mdt-input > .input-wrapper > .text-cut").click()
+    page1.locator("div:nth-child(6) > .mt-16 > .mdt-input > .input-wrapper > .text-cut").fill(fake.text())
+    page1.locator("div:nth-child(3) > div > div > div:nth-child(7) > .mt-16 > .mdt-input > .input-wrapper > .text-cut").click()
+    page1.locator("div:nth-child(3) > div > div > div:nth-child(7) > .mt-16 > .mdt-input > .input-wrapper > .text-cut").fill(fake.text())
+    page1.locator("div:nth-child(8) > .mt-16 > .mdt-input > .input-wrapper > .text-cut").click()
+    page1.locator("div:nth-child(8) > .mt-16 > .mdt-input > .input-wrapper > .text-cut").fill(fake.text())
+    page1.locator("div:nth-child(2) > .mt-16 > .mdt-input > .input-wrapper > .text-cut").click()
+    page1.locator("div:nth-child(2) > .mt-16 > .mdt-input > .input-wrapper > .text-cut").fill(fake.text())
+    
+    page1.locator("textarea").first.fill(fake.text())
+    
+    page1.click("div.section:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > i:nth-child(2)")
+    page1.click("li.dropdown-item:nth-child(2) > div:nth-child(1)")
+
+    page1.click("div.section:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > i:nth-child(2)")
+    page1.click("li.dropdown-item:nth-child(2) > div:nth-child(1)")
+
+
+    page1.click("div.section:nth-child(5) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > i:nth-child(2)")
+    page1.click("li.dropdown-item:nth-child(1) > div:nth-child(1)")
+    
+    
+    page1.fill("div.section:nth-child(5) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > textarea:nth-child(1)",fake.text())
+    page1.click("div.btn:nth-child(2)")
+
+    #pg4
     i = 1  # Start from 1 to ensure at least one iteration
     while i <= NUM_ADULTS:
         page1.click(".create-adult > div:nth-child(1)")
@@ -67,7 +129,7 @@ def test_example(page: Page, url: str) -> None:
         page1.click("li.dropdown-item:nth-child(1) > div:nth-child(1)")
 
         page1.click(".nested-form-slot > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(12) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > i:nth-child(2)")
-        page1.click("li.dropdown-item:nth-child(1) > div:nth-child(1)")
+        page1.click("li.dropdown-item:nth-child(3) > div:nth-child(1)")
 
         page1.locator("div:nth-child(9) > .mt-16 > .mdt-input > .input-wrapper > .text-cut").click()
         page1.locator("div:nth-child(9) > .mt-16 > .mdt-input > .input-wrapper > .text-cut").fill(fake.text())
@@ -100,12 +162,21 @@ def test_example(page: Page, url: str) -> None:
 
         i += 1
 
+    page1.click(".create-child > div:nth-child(1) > i:nth-child(1)")
+    page1.fill(".nested-form-slot > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)", fake.first_name())
+    page1.fill(".nested-form-slot > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)", fake.last_name())
+    page1.fill(".has-icon > input:nth-child(1)",fake.date_of_birth().strftime("%d.%m.%Y"))
+    page1.click(".fa-caret-down")
+    page1.click("li.dropdown-item:nth-child(2) > div:nth-child(1)")
+    page1.click(".fa-plus")
+    page1.click(".btn-primary")
+
     page1.wait_for_timeout(1000)
     page1.wait_for_load_state('networkidle')
     page1.click(".btn-next")
     page1.wait_for_load_state('networkidle')
 
-    #page 5 
+    #pg5
     page1.click("#agreement_penalty")
     page1.click("#agreement_truth")
     page1.click("#agreement_privacy")
